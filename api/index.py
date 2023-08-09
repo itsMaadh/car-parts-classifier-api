@@ -42,7 +42,6 @@ def get_data():
     )
 
     classifier_predicted_class = np.argmax(result)
-    print(classes[classifier_predicted_class])
     return jsonify({"class": classes[classifier_predicted_class]})
 
 
