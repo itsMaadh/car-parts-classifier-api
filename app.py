@@ -24,7 +24,12 @@ classes = [
 ]
 
 
-@app.route("/api/predict", methods=["GET"])
+@app.route("/")
+def home():
+    return "Hello, World!"
+
+
+@app.route("/predict", methods=["GET"])
 def get_data():
     image_path = request.args.get("url")
     inception_resnet_trained_model = load_model("classifier-model.h5")
