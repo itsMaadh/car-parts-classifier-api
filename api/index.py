@@ -4,6 +4,7 @@ from keras.preprocessing.image import load_img, img_to_array
 import numpy as np
 from io import BytesIO
 import urllib.request as urllib
+import requests
 
 app = Flask(__name__)
 classes = [
@@ -24,6 +25,23 @@ classes = [
 ]
 
 
+def download_file(url, local_path):
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        with open(local_path, "wb") as file:
+            file.write(response.content)
+            print(f"File downloaded and saved as {local_path}")
+    else:
+        print("Failed to download the file")
+
+
+download_file(
+    "https://lottiefiles-test.s3.ap-southeast-1.amazonaws.com/classifier-model.h5",
+    "model.h5",
+)
+
+
 @app.route("/")
 def home():
     return "Hello, World!"
@@ -32,7 +50,8 @@ def home():
 @app.route("/predict", methods=["GET"])
 def get_data():
     image_path = request.args.get("url")
-    inception_resnet_trained_model = load_model("./classifier-model.h5")
+
+    inception_resnet_trained_model = load_model("./model.h5")
 
     with urllib.urlopen(image_path) as url:
         img = load_img(BytesIO(url.read()), target_size=(224, 224))

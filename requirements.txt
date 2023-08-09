@@ -2,9 +2,4 @@ Flask==2.3.2
 keras==2.13.1
 numpy==1.23.0
 urllib3==1.26.15
-tensorflow==2.13.0
-tensorflow-decision-forests==1.5.0
-tensorflow-estimator==2.13.0
-tensorflow-hub==0.14.0
-tensorflow-macos==2.13.0
-tensorflowjs==4.10.0
+requests==2.30.0
