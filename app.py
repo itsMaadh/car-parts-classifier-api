@@ -27,7 +27,7 @@ classes = [
 @app.route("/api/predict", methods=["GET"])
 def get_data():
     image_path = request.args.get("url")
-    inception_resnet_trained_model = load_model("model/classifier-model.h5")
+    inception_resnet_trained_model = load_model("classifier-model.h5")
 
     with urllib.urlopen(image_path) as url:
         img = load_img(BytesIO(url.read()), target_size=(224, 224))
