@@ -65,5 +65,5 @@ def get_data():
     return jsonify({"class": classes[classifier_predicted_class]})
 
 
-# if __name__ == "__main__":
-#     app.run(host="0.0.0.0", port=2000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=2000)
