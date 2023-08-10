@@ -3,4 +3,4 @@ keras==2.13.1
 numpy==1.23.0
 urllib3==1.26.15
 requests==2.30.0
-tensorflow==2.13.0
+tensorflow-cpu==2.13.0
