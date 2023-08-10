@@ -26,6 +26,7 @@ classes = [
 
 
 def download_file(url, local_path):
+    print(f"Started downloading file from url: ", url)
     response = requests.get(url)
 
     if response.status_code == 200:
